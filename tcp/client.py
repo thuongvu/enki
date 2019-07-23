@@ -33,15 +33,17 @@ def send(msg):
         print('response: {}'.format(response))
 
 while True:
-    msg = input('text input: ')
-    retry = True
-    while retry:
-        try:
-            signal.signal(signal.SIGALRM, timeout_handler)
-            signal.alarm(3)
-            send(msg)
-        except TimeoutError:
-            continue
-        retry = False
-        signal.alarm(0)
+    # msg = input('text input: ')
+    for i in range(0, 1000):
+        msg = '{}'.format(i)
+        retry = True
+        while retry:
+            try:
+                signal.signal(signal.SIGALRM, timeout_handler)
+                signal.alarm(3)
+                send(msg)
+            except TimeoutError:
+                continue
+            retry = False
+            signal.alarm(0)
     
