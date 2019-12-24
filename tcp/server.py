@@ -22,7 +22,7 @@ except IndexError:
 	port = 9000
 sock.bind((address, port))
 try:
-	drop_rate = float(sys.argv[1])
+	drop_rate = float(sys.argv[2])
 except IndexError:
 	drop_rate = 0.3
 
